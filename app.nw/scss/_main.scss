@@ -1,0 +1,184 @@
+/* ====================================================
+    GENERAL
+    ====================================================*/
+
+*{
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font:{
+        family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        weight: 300;
+        size: 1rem;
+    };
+}
+
+main{
+    display: block;
+    background: white;
+    height: 100%;
+    padding: .5rem;
+}
+
+
+
+
+/* ====================================================
+    HOLDER
+    ====================================================*/
+
+.holder{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: #E6EAF0;
+    border-radius: .5rem;
+    color: black;
+}
+
+.holder__title{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    text-align: center;
+    color: #798290;
+    text-shadow: 0 1px 0 #fff;
+    font:{
+        size: .8rem;
+        weight: normal;
+    };
+    line-height: 32px;
+    margin-top: -32px;
+    i{
+        display: block;
+        font-size: 2.1rem;
+        margin-bottom: .3rem;
+    }
+}
+
+
+
+/* ====================================================
+    LIST
+    ====================================================*/
+
+
+
+
+
+
+
+
+
+
+/* ====================================================
+    STATES
+    ====================================================*/
+
+.page_layout_list{
+    .holder{
+        display: none;
+    }
+    .list{
+        display: block;
+    }
+}
+
+.page_layout_holder{
+    .holder{
+        display: block;
+    }
+    .list{
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.page_layout_list {
+    /* http://lea.verou.me/css3patterns/#horizontal-stripes */
+    background-image: -webkit-linear-gradient(transparent 50%, #eee 50%);
+    background-size: 66px 66px;
+}
+
+
+
+.list {
+    display: none;
+}
+
+
+
+.holder_state_hover {
+    border-color: #bbb;
+}
+
+
+
+.list {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+
+.list__header {
+    text-align: left;
+}
+
+.list__header {
+    padding: 0 10px 8px;
+    white-space: nowrap;
+}
+
+.item_error_yes {
+    background: #ff8f8f;
+}
+
+.item__cell {
+    padding: 8px 10px;
+    white-space: nowrap;
+}
+
+.item__cell_type_name {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list__header_type_profit,
+.item__cell_type_profit {
+    text-align: right;
+}

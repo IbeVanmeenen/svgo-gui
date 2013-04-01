@@ -1,4 +1,4 @@
-NODE-WEBKIT=v0.4.1
+NODE-WEBKIT=v0.4.2
 
 .PHONY: osx
 osx:
@@ -10,9 +10,13 @@ osx:
 	@rm node-webkit-${NODE-WEBKIT}-osx-ia32.zip
 	@mv node-webkit.app osx/svgo-gui.app
 	@mkdir osx/svgo-gui.app/Contents/Resources/app.nw/
+	@mkdir osx/svgo-gui.app/Contents/Resources/app.nw/css
+	@mkdir osx/svgo-gui.app/Contents/Resources/app.nw/js
+	@mkdir osx/svgo-gui.app/Contents/Resources/app.nw/iconfont
 	@ln app.nw/index.html osx/svgo-gui.app/Contents/Resources/app.nw/index.html
-	@ln app.nw/styles.css osx/svgo-gui.app/Contents/Resources/app.nw/styles.css
-	@ln app.nw/script.js osx/svgo-gui.app/Contents/Resources/app.nw/script.js
+	@ln app.nw/css/style.css osx/svgo-gui.app/Contents/Resources/app.nw/css/style.css
+	@ln app.nw/js/script.min.js osx/svgo-gui.app/Contents/Resources/app.nw/js/script.min.js
+	@ln app.nw/iconfont/svgo-gui.ttf osx/svgo-gui.app/Contents/Resources/app.nw/iconfont/svgo-gui.ttf
 	@ln app.nw/package.json osx/svgo-gui.app/Contents/Resources/app.nw/package.json
 	@ln -f osx/app.icns osx/svgo-gui.app/Contents/Resources/app.icns
 	@ln -f osx/Info.plist osx/svgo-gui.app/Contents/Info.plist
