@@ -1,0 +1,14 @@
+@mixin single_transition($property, $duration, $ease){
+    -webkit-transition: $property $duration $ease;
+            transition: $property $duration $ease;
+}
+@mixin simple_animation($name, $duration, $ease){
+    -webkit-animation: $name $duration $ease;
+            animation: $name $duration $ease;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+}
+@mixin linear_gradient($startposition, $color1, $color2){
+    background-image: -webkit-linear-gradient($startposition, $color1, $color2);
+    background-image:         linear-gradient($startposition, $color1, $color2);
+}

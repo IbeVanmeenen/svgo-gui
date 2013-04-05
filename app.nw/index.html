@@ -17,14 +17,21 @@
         </section>
         <section class="list">
             <table>
-                <tr>
-                    <th class="list__header list__header_type_name">file</th>
-                    <th class="list__header list__header_type_before">before</th>
-                    <th class="list__header list__header_type_after">after</th>
-                    <th class="list__header list__header_type_profit">profit</th>
-                </tr>
+                <thead class="list__header">
+                    <tr>
+                        <th class="list__header list__header_type_name">File</th>
+                        <th class="list__header list__header_type_before">Before</th>
+                        <th class="list__header list__header_type_after">After</th>
+                        <th class="list__header list__header_type_profit">Profit</th>
+                    </tr>
+                </thead>
+                <tbody class="list__body">
+                </tbody>
             </table>
         </section>
+        <button type="button" class="settings">
+            <i class="icon-cog"></i>
+        </button>
     </main>
 
     <script src="js/script.min.js"></script>

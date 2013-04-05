@@ -6,7 +6,7 @@
         svgo = new SVGO(),
         body = doc.body,
         holder = doc.querySelector('.holder'),
-        list = doc.querySelector('.list'),
+        listBody = doc.querySelector('.list__body'),
         regSVGFile = /\.svg$/;
 
     // send files to the not already running app
@@ -23,6 +23,15 @@
         onFilesDrop(files);
 
     }
+
+
+    // Create a tray icon
+    var tray = new GUI.Tray({ title: 'Tray', icon: 'img/drop.png' });
+
+    // Give it a menu
+    var menu = new GUI.Menu();
+    menu.append(new GUI.MenuItem({ type: 'checkbox', label: 'box1' }));
+    tray.menu = menu;
 
     // send files to the already running app
     // ("Open With" or drag-n-drop)
@@ -129,8 +138,7 @@
         if (docFragment.childNodes.length) {
 
             body.classList.add('page_layout_list');
-            body.classList.remove('page_layout_holder');
-            list.appendChild(docFragment);
+            listBody.appendChild(docFragment);
 
         } else {
 

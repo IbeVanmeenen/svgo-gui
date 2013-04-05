@@ -22,12 +22,47 @@ body{
 
 main{
     display: block;
-    background: white;
+    position: relative;
     height: 100%;
     padding: .5rem;
+    background: white;
+    color: #333;
+    text-shadow: 0 1px 0 #fff;
 }
 
+table { 
+    border: none;
+    border-collapse: collapse; 
+    border-spacing: 0; 
+}
+td { 
+    vertical-align: top; 
+}
 
+button{
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* ====================================================
+    FOOTER
+    ====================================================*/
+
+.settings{
+    position: absolute;
+    bottom: 0rem;
+    right: .1rem;
+    padding: 1em;
+    font-size: 1rem;
+    line-height: 100%;
+    color: rgba(121, 130, 144, 0.52);
+    &:hover{
+        cursor: pointer;
+        color: #798290;
+    }
+}
 
 
 /* ====================================================
@@ -61,6 +96,7 @@ main{
         display: block;
         font-size: 2.1rem;
         margin-bottom: .3rem;
+        @include single_transition(color, .3s, ease-in-out);
     }
 }
 
@@ -70,10 +106,73 @@ main{
     LIST
     ====================================================*/
 
+.page_layout_list{
+    main{
+        background: none;
+        padding: 0;
+    }
+    background-image: -webkit-linear-gradient(transparent 50%, #F5F6FA 50%);
+    background-image:         linear-gradient(transparent 50%, #F5F6FA 50%);
+    background-size: 66px 66px;
+}
+
+table{
+    width: 100%;
+    font-size: .9rem;
+    color: #46474C;
+}
+
+tr, th, td{
+    height: 32px;
+    line-height: 32px;
+    padding: 0 10px;
+    text-align: left;
+}
+
+.list__header{
+    @include linear_gradient(top, #F2F3F8, #E4E7EE);
+    th{
+        font-weight: 600;
+        border: 1px solid #CACDD4;
+        color: #696D76;
+    }
+}
+
+.list__body{
+    tr{
+        @include simple_animation(fadeInLeft, .2s, linear);
+    }
+    td{
+        border: 1px solid #EAEBEF;
+        font-size: .9em;
+    }
+}
 
 
 
+.item__cell_type_name{
+    padding-left: 30px;
+    position: relative;
+    &:before{
+        @extend .icon-checkmark-circle;
+        content: "\e001";
+        position: absolute;
+        top: 0;
+        left: 10px;
+        color: rgb(108, 219, 122);
+        line-height: 33px;
+    }
+}
 
+.item_error_yes{
+    color: rgb(255, 84, 84);
+    .item__cell_type_name{
+        &:before{
+            content: "\e002";
+            color: rgb(255, 84, 84);
+        }
+    }
+}
 
 
 
@@ -82,6 +181,17 @@ main{
 /* ====================================================
     STATES
     ====================================================*/
+
+.list{
+    display: none;
+}
+
+.holder_state_hover{
+    i{
+        color: rgb(108, 219, 122);
+        @include simple_animation(tada, .5s, linear);
+    }
+}
 
 .page_layout_list{
     .holder{
@@ -92,14 +202,6 @@ main{
     }
 }
 
-.page_layout_holder{
-    .holder{
-        display: block;
-    }
-    .list{
-        display: none;
-    }
-}
 
 
 
@@ -127,58 +229,4 @@ main{
 
 
 
-.page_layout_list {
-    /* http://lea.verou.me/css3patterns/#horizontal-stripes */
-    background-image: -webkit-linear-gradient(transparent 50%, #eee 50%);
-    background-size: 66px 66px;
-}
 
-
-
-.list {
-    display: none;
-}
-
-
-
-.holder_state_hover {
-    border-color: #bbb;
-}
-
-
-
-.list {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-
-
-.list__header {
-    text-align: left;
-}
-
-.list__header {
-    padding: 0 10px 8px;
-    white-space: nowrap;
-}
-
-.item_error_yes {
-    background: #ff8f8f;
-}
-
-.item__cell {
-    padding: 8px 10px;
-    white-space: nowrap;
-}
-
-.item__cell_type_name {
-    max-width: 100px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.list__header_type_profit,
-.item__cell_type_profit {
-    text-align: right;
-}
