@@ -1,6 +1,6 @@
 /* ====================================================
     GENERAL
-    ====================================================*/
+    ==================================================== */
 
 *{
     box-sizing: border-box;
@@ -12,31 +12,40 @@ html, body{
     margin: 0;
 }
 
-body{
+html{
     font:{
         family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
         weight: 300;
-        size: 1rem;
+        size: 13px;
     };
 }
 
 main{
-    display: block;
+    display: inline-block;
     position: relative;
     height: 100%;
-    padding: .5rem;
+    width: 100%;
+    overflow: auto;
+    padding: .7rem;
     background: white;
     color: #333;
     text-shadow: 0 1px 0 #fff;
+    -webkit-transform-origin: 0px 50%;
+            transform-origin: 0px 50%;
+    @include single_transition(all, .2s, ease-in-out);
 }
 
-table { 
+table {
     border: none;
-    border-collapse: collapse; 
-    border-spacing: 0; 
+    border-collapse: collapse;
+    border-spacing: 0;
 }
-td { 
-    vertical-align: top; 
+td {
+    vertical-align: top;
+}
+
+button, label, input{
+    cursor: pointer;
 }
 
 button{
@@ -46,35 +55,42 @@ button{
     margin: 0;
 }
 
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 /* ====================================================
     FOOTER
-    ====================================================*/
+    ==================================================== */
 
-.settings{
+.settings_btn{
     position: absolute;
     bottom: 0rem;
-    right: .1rem;
+    right: .2rem;
     padding: 1em;
-    font-size: 1rem;
+    font-size: 1.3rem;
     line-height: 100%;
-    color: rgba(121, 130, 144, 0.52);
+    color: #798290;
+    opacity: .5;
+    @include single_transition(opacity, .2s, ease-in-out);
     &:hover{
-        cursor: pointer;
-        color: #798290;
+        opacity: 1;
     }
 }
 
 
 /* ====================================================
     HOLDER
-    ====================================================*/
+    ==================================================== */
 
 .holder{
     position: relative;
     height: 100%;
     width: 100%;
     background: #E6EAF0;
-    border-radius: .5rem;
+    border-radius: .7rem;
     color: black;
 }
 
@@ -87,15 +103,15 @@ button{
     color: #798290;
     text-shadow: 0 1px 0 #fff;
     font:{
-        size: .8rem;
+        size: 1rem;
         weight: normal;
     };
     line-height: 32px;
     margin-top: -32px;
     i{
         display: block;
-        font-size: 2.1rem;
-        margin-bottom: .3rem;
+        font-size: 2.5em;
+        margin-bottom: .2em;
         @include single_transition(color, .3s, ease-in-out);
     }
 }
@@ -104,7 +120,7 @@ button{
 
 /* ====================================================
     LIST
-    ====================================================*/
+    ==================================================== */
 
 .page_layout_list{
     main{
@@ -177,10 +193,38 @@ tr, th, td{
 
 
 
+/* ====================================================
+    SETTINGS
+    ==================================================== */
+
+.settings_bar{
+    position: fixed;
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    padding: .7rem;
+    -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ====================================================
     STATES
-    ====================================================*/
+    ==================================================== */
 
 .list{
     display: none;
@@ -202,7 +246,17 @@ tr, th, td{
     }
 }
 
-
+.page_settings_active{
+    .settings_btn{
+        opacity: 1;
+    }
+    main{
+        width: -webkit-calc(100% - 260px);
+    }
+    .settings_bar{
+        width: 200px;
+    }
+}
 
 
 
